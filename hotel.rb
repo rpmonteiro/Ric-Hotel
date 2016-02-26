@@ -49,4 +49,23 @@ class Hotel
     @rooms.size
   end
 
+  def is_occupied?(room)
+    @available_rooms.include?(room) ? false : true
+  end
+
+  def available_rooms_by_type(type)
+    same_type = []
+    available = []
+
+    @available_rooms.each do |room|
+      same_type << room if room.type == type.downcase
+    end
+
+    same_type.each do |room|
+      available << room if room.occupied == false
+    end
+    
+    return available
+  end
+
 end

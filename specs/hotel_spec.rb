@@ -48,8 +48,17 @@ class TestHotel < Minitest::Test
   end
 
   def test_guest_list
-    print @setup.hotel.inspect
-    assert_equal(false, @setup.hotel.guest_list)
+    result = {:room1=>false, :room2=>false, :room3=>false, :room4=>false, :room5=>false, :room6=>false, :room7=>false, :room8=>false, :room9=>false, :room10=>false}
+    assert_equal(result, @setup.hotel.guest_list)
+  end
+
+  def test_is_occupied?  
+    assert_equal(false, @setup.hotel.is_occupied?(@setup.room1))
+  end
+
+  def test_available_rooms_by_type
+    result = [@setup.room3, @setup.room4, @setup.room5, @setup.room6, @setup.room7]
+    assert_equal(result, @setup.hotel.available_rooms_by_type("double"))
   end
 
 end

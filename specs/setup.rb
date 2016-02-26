@@ -12,28 +12,28 @@ class Setup
   def initialize
 
   single = {
-    type: "Single",
+    type: "single",
     price_per_night: 80,
     max_occupancy: 1,
     occupied: false,
   }
 
   double = {
-    type: "Double",
+    type: "double",
     price_per_night: 100,
     max_occupancy: 2,
     occupied: false
   }
 
   junior_suite = {
-    type: "Junior Suite",
+    type: "junior suite",
     price_per_night: 130,
     max_occupancy: 4,
     occupied: false
   }
 
   suite = {
-    type: "Suite",
+    type: "suite",
     price_per_night: 180,
     max_occupancy: 4,
     occupied: false
