@@ -47,4 +47,9 @@ class TestHotel < Minitest::Test
     assert_equal(8, @setup.hotel.number_of_rooms_available)
   end
 
+  def test_guest_list
+    print @setup.hotel.inspect
+    assert_equal(false, @setup.hotel.guest_list)
+  end
+
 end

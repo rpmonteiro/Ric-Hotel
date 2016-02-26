@@ -14,25 +14,29 @@ class Setup
   single = {
     type: "Single",
     price_per_night: 80,
-    max_occupancy: 1
+    max_occupancy: 1,
+    occupied: false,
   }
 
   double = {
     type: "Double",
     price_per_night: 100,
-    max_occupancy: 2
+    max_occupancy: 2,
+    occupied: false
   }
 
   junior_suite = {
     type: "Junior Suite",
     price_per_night: 130,
-    max_occupancy: 4
+    max_occupancy: 4,
+    occupied: false
   }
 
   suite = {
     type: "Suite",
     price_per_night: 180,
-    max_occupancy: 4
+    max_occupancy: 4,
+    occupied: false
   }
 
   @room1 = Room.new(suite)

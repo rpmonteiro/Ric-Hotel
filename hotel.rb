@@ -1,10 +1,19 @@
 class Hotel
 
   attr_reader :rooms, :name
+  attr_accessor :guest_list
   def initialize(name, rooms)
     @rooms = rooms
     @name = name
     @available_rooms = rooms
+  end
+
+  def guest_list()
+    result = {}
+    @rooms.each_with_index do |room, index|
+      result["room#{index+1}".to_sym] = room.occupied
+    end
+    return result 
   end
 
   def number_of_rooms_available
@@ -17,6 +26,7 @@ class Hotel
 
   def occupy_room(room)
     if @available_rooms.delete(room) == nil
+      ##insert room and person that will occupy it 
       return false
     else
       return true
@@ -38,6 +48,5 @@ class Hotel
   def available_rooms()
     @rooms.size
   end
-
 
 end
