@@ -1,8 +1,13 @@
 require_relative('../room')
+require_relative('../guest')
+require_relative('../hotel')
+require_relative('../restaurant')
+require_relative('../booking')
+
 
 class Setup
 
-  attr_accessor :room1, :room2, :room3, :room4, :room5, :room6, :room7, :room8, :room9, :room10, :hotel 
+  attr_accessor :room1, :room2, :room3, :room4, :room5, :room6, :room7, :room8, :room9, :room10, :hotel, :guest1, :guest2, :guest3, :guest4, :guest5, :guest6, :guest7, :guest_test 
 
   def initialize
 
@@ -45,6 +50,13 @@ class Setup
 
   @hotel = Hotel.new(@all_rooms)
 
+  @guest1 = Guest.new(name: "Ricardo", roommates: 1, tab: 0)
+  @guest2 = Guest.new(name: "Simon", roommates: 2, tab: 0)
+  @guest3 = Guest.new(name: "Valerie", roommates: 1, tab: 0)
+  @guest4 = Guest.new(name: "Rick", roommates: 0, tab: 0)
+  @guest5 = Guest.new(name: "John", roommates: 0, tab: 0)
+  @guest6 = Guest.new(name: "Elton", roommates: 3, tab: 0) 
+  @guest7 = Guest.new(name: "Rui", roommates: 1, tab: 0) 
   end
 
 end

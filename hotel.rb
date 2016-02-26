@@ -1,5 +1,6 @@
 class Hotel
   
+  attr_reader :rooms
   def initialize(rooms)
     @rooms = rooms
   end
@@ -15,5 +16,7 @@ class Hotel
     end
     return total
   end
+
+
 
 end
