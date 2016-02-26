@@ -5,12 +5,20 @@ require_relative "../hotel"
 require_relative "../room"
 require_relative "../guest"
 require_relative "../log"
-require_relative "variable_setup"
+require_relative "setup"
 
 class TestRooms < Minitest::Test
 
-  def test_total_rooms
-    
+  def setup
+    @setup = Setup.new
+  end
+
+  def test_room1_max_occupancy
+    assert_equal(4, @setup.room1.max_occupancy)
+  end
+
+  def test_room2_price
+    assert_equal(130, @setup.room2.price_per_night)
   end
 
 end

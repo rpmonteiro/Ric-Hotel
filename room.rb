@@ -1,4 +1,4 @@
-class Rooms
+class Room
 
   attr_reader :type, :price_per_night, :max_occupancy
   def initialize(params)
@@ -7,6 +7,6 @@ class Rooms
     @max_occupancy = params[:max_occupancy]
   end
 
-  
+
 
 end

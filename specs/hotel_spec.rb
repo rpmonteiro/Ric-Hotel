@@ -8,6 +8,4 @@ require_relative "../log"
 
 class TestHotel < Minitest::Test
 
-
-
 end
