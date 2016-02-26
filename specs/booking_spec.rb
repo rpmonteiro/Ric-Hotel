@@ -12,4 +12,8 @@ class TestBooking < Minitest::Test
     @setup = Setup.new
   end
 
+  def test_assign_suite_to_new_guest
+    assert_equal(" This is a test ", new_booking(@setup.guest1, @setup.hotel, "Suite"))
+  end
+
 end

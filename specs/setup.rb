@@ -7,7 +7,7 @@ require_relative('../booking')
 
 class Setup
 
-  attr_accessor :room1, :room2, :room3, :room4, :room5, :room6, :room7, :room8, :room9, :room10, :hotel, :guest1, :guest2, :guest3, :guest4, :guest5, :guest6, :guest7
+  attr_accessor :room1, :room2, :room3, :room4, :room5, :room6, :room7, :room8, :room9, :room10, :hotel, :guest1, :guest2, :guest3, :guest4, :guest5, :guest6, :guest7, :booking_1, :booking_2, :all_rooms, :all_guests
 
   def initialize
 
@@ -59,6 +59,9 @@ class Setup
   @guest7 = Guest.new(name: "Rui", roommates: 1, tab: 0) 
 
   @all_guests = [@guest1, @guest2, @guest3, @guest4, @guest5, @guest6, @guest7]
+
+  @booking1 = Booking.new(@hotel1, @guest1, "Suite")
+
   end
 
 end

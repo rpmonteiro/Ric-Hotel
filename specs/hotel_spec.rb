@@ -20,4 +20,14 @@ class TestHotel < Minitest::Test
     assert_equal(21, @setup.hotel.max_capacity)
   end
 
+  def test_available_rooms
+    result = @setup.all_rooms
+    assert_equal(result, @setup.hotel.rooms_available)
+  end
+
+  def test_delete_a_room
+    assert_equal(true, @setup.hotel.occupy_room(@setup.room1))
+    assert_equal(false, @setup.hotel.occupy_room(9))
+  end
+
 end
