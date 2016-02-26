@@ -1,8 +1,9 @@
 class Hotel
   
-  attr_reader :rooms
-  def initialize(rooms)
+  attr_reader :rooms, :name
+  def initialize(name, rooms)
     @rooms = rooms
+    @name = name
   end
 
   def number_of_rooms
