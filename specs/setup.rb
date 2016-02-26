@@ -2,7 +2,7 @@ require_relative('../room')
 
 class Setup
 
-  attr_accessor :room1, :room2, :room3, :room4, :room5, :room6, :room7, :room8, :room9, :room10 
+  attr_accessor :room1, :room2, :room3, :room4, :room5, :room6, :room7, :room8, :room9, :room10, :hotel 
 
   def initialize
 
@@ -42,6 +42,9 @@ class Setup
   @room10 = Room.new(single)
 
   @all_rooms = [@room1, @room2, @room3, @room4, @room5, @room6, @room7, @room8, @room9, @room10]
+
+  @hotel = Hotel.new(@all_rooms)
+
   end
 
 end
