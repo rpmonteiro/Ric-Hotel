@@ -23,11 +23,28 @@ class TestHotel < Minitest::Test
   def test_available_rooms
     result = @setup.all_rooms
     assert_equal(result, @setup.hotel.rooms_available)
+
+    @setup.hotel.occupy_room(@room1)
+    result2 = [@setup.room1, @setup.room2, @setup.room3, @setup.room4, @setup.room5, @setup.room6, @setup.room7, @setup.room8, @setup.room9, @setup.room10]
+    assert_equal(result, @setup.hotel.rooms_available)
   end
 
   def test_delete_a_room
     assert_equal(true, @setup.hotel.occupy_room(@setup.room1))
     assert_equal(false, @setup.hotel.occupy_room(9))
+  end
+
+  def test_number_available_rooms_after_deletion_of_one
+    @setup.hotel.occupy_room(@setup.room1)
+    assert_equal(9, @setup.hotel.number_of_rooms_available)
+
+    #Should remain the same because deleting
+    #an already deleted room won't change anything
+    @setup.hotel.occupy_room(@setup.room1)
+    assert_equal(9, @setup.hotel.number_of_rooms_available)
+
+    @setup.hotel.occupy_room(@setup.room2)
+    assert_equal(8, @setup.hotel.number_of_rooms_available)
   end
 
 end

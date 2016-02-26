@@ -7,6 +7,10 @@ class Hotel
     @available_rooms = rooms
   end
 
+  def number_of_rooms_available
+    @available_rooms.size
+  end
+
   def rooms_available
     @available_rooms
   end
@@ -17,7 +21,6 @@ class Hotel
     else
       return true
     end
-
   end
 
   def number_of_rooms
