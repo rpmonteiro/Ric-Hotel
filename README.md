@@ -1,5 +1,5 @@
 # Ric's Hotel
-## Final homework of week 2
+## Final homework of week 2 (CodeClan)
 
 This is a booking system in ruby (almost) for hotels that manages bookings, revenue, occupancy rate, etc.
 
@@ -13,6 +13,8 @@ It's lacking:
 * Kick guests from the hotel
 * Maybe a restaurant for the hungry :)
 
-###### Total time dedicated: 12h
+###### Total time dedicated: 13h
+
+Spent a lot of time with blocks and manipulating hashes and accessing them, but finally grasped it!! A huge victory for me.
 
 Goodbye for now.
