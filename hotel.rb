@@ -5,7 +5,7 @@ class Hotel
   def initialize(name, rooms)
     @rooms = rooms
     @name = name
-    @available_rooms = rooms
+    @available_rooms = rooms.clone
   end
 
   def guest_list()
@@ -25,15 +25,18 @@ class Hotel
   end
 
   def guest_has_room?(guest)
-    @rooms.any?{|room| room.occupied == guest}
+    @rooms.each do |room|
+      return true if room.occupied == guest
+    end
+    return false
   end
 
   def occupy_room(room, guest)
-    if @available_rooms.include?(room) && guest_has_room?(guest)
-      @available_rooms.find{|i| i == room}.occupied = guest
+    if @available_rooms.include?(room) && (guest_has_room?(guest)) == false
+      @rooms.find{|i| i == room}.occupied = guest
       @available_rooms.delete(room)
       return true
-    else 
+    else
       return false
     end
   end

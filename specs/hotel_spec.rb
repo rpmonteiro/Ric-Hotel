@@ -10,6 +10,8 @@ class TestHotel < Minitest::Test
 
   def setup
     @setup = Setup.new
+    @hotel1 = Hotel.new("testHotel", @setup.all_rooms)
+    @hotel2 = Hotel.new("crazyHotel", @setup.all_rooms)
   end
 
   def test_hotel_has_ten_rooms
@@ -34,26 +36,30 @@ class TestHotel < Minitest::Test
     assert_equal(result, @setup.hotel.available_rooms_by_type("double"))
   end
 
-  def test_guest_already_has_room
-    @setup.room1.occupied = @setup.guest1
+  def test_guest_has_room
+    @setup.room8.occupied = @setup.guest1
+
     assert_equal(true, @setup.hotel.guest_has_room?(@setup.guest1))
-    assert_equal(false, @setup.hotel.guest_has_room?(@setup.guest2))
+    assert_equal(false, @setup.hotel.guest_has_room?(@setup.guest3))
+  end
+
+  def test_guest_has_room_false
+    assert_equal(false, @setup.hotel.guest_has_room?(@setup.guest7))
+    assert_equal(false, @setup.hotel.guest_has_room?(@setup.guest6))
   end
 
   def test_occupy_room
-    assert_equal(true, @setup.hotel.occupy_room(@setup.room2, @setup.guest5))
+    assert_equal(true, @setup.hotel.occupy_room(@setup.room2, @setup.guest2))
   end
 
   def test_occupy_room_when_its_not_available
-    @setup.hotel.occupy_room(@setup.room1, @setup.guest1)
-    assert_equal(false, @setup.hotel.occupy_room(@setup.room1, @setup.guest1))
+    @hotel1.occupy_room(@setup.room1, @setup.guest1)
+    assert_equal(false, @hotel1.occupy_room(@setup.room1, @setup.guest3))
   end
 
   def test_occupy_room_when_guest_has_another_room
-    @setup.hotel.occupy_room(@setup.room1, @setup.guest1)
-    assert_equal(false, @setup.hotel.occupy_room(@setup.room2, @setup.guest1))
+    @hotel2.occupy_room(@setup.room4, @setup.guest4)
+    assert_equal(false, @hotel2.occupy_room(@setup.room9, @setup.guest4))
   end
-
-
 
 end
