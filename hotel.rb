@@ -61,16 +61,25 @@ class Hotel
   def available_rooms_by_type(type)
     same_type = []
     available = []
-
     @available_rooms.each do |room|
       same_type << room if room.type == type.downcase
     end
-
     same_type.each do |room|
       available << room if room.occupied == false
     end
-
     return available
   end
+
+  def room_capacity_by_type(type)
+    if type.downcase == "single"
+      return 1
+    elsif type.downcase == "double"
+      return 2
+    elsif type.downcase == "junior suite" || type.downcase == "suite"
+      return 4
+    end
+    return false
+  end
+
 
 end

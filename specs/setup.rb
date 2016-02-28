@@ -1,7 +1,6 @@
 require_relative('../room')
 require_relative('../guest')
 require_relative('../hotel')
-require_relative('../restaurant')
 require_relative('../booking')
 
 
@@ -15,7 +14,7 @@ class Setup
     type: "single",
     price_per_night: 80,
     max_occupancy: 1,
-    occupied: false,
+    occupied: false
   }
 
   double = {
@@ -64,7 +63,7 @@ class Setup
 
   @all_guests = [@guest1, @guest2, @guest3, @guest4, @guest5, @guest6, @guest7]
 
-  @booking1 = Booking.new(@hotel1, @guest1, "Suite")
+  @booking1 = Booking.new(@hotel, @guest1, "Suite")
 
   end
 

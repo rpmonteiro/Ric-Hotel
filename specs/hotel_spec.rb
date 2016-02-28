@@ -62,4 +62,12 @@ class TestHotel < Minitest::Test
     assert_equal(false, @hotel2.occupy_room(@setup.room9, @setup.guest4))
   end
 
+  def test_room_has_space_for_two
+    assert_equal(2, @setup.hotel.room_capacity_by_type("double"))
+  end
+
+  def test_room_has_space_for_one
+    assert_equal(1, @setup.hotel.room_capacity_by_type("single"))
+  end
+
 end
