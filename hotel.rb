@@ -25,10 +25,7 @@ class Hotel
   end
 
   def guest_has_room?(guest)
-    @rooms.each do |room|
-      return true if room.occupied == guest
-    end
-    return false
+    @rooms.any?{|room| room.occupied == guest}
   end
 
   def occupy_room(room, guest)
