@@ -17,7 +17,7 @@ class TestRooms < Minitest::Test
   end
 
   def test_room2_price
-    assert_equal(10, @setup.room2.price_per_night)
+    assert_equal(130, @setup.room2.price_per_night)
   end
 
 end

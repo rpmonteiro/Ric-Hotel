@@ -24,12 +24,17 @@ class Hotel
     @available_rooms
   end
 
-  def occupy_room(room)
-    if @available_rooms.delete(room) == nil
-      ##insert room and person that will occupy it 
-      return false
-    else
+  def guest_has_room?(guest)
+    @rooms.any?{|room| room.occupied == guest}
+  end
+
+  def occupy_room(room, guest)
+    if @available_rooms.include?(room) && guest_has_room?(guest)
+      @available_rooms.find{|i| i == room}.occupied = guest
+      @available_rooms.delete(room)
       return true
+    else 
+      return false
     end
   end
 
@@ -64,7 +69,7 @@ class Hotel
     same_type.each do |room|
       available << room if room.occupied == false
     end
-    
+
     return available
   end
 

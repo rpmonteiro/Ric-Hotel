@@ -12,12 +12,14 @@ class Booking
     #call the occupy function to remove that room from the available list
     #return true
     #else return false
-    available_rooms_of_requested_type = []
-    available_rooms = hotel.rooms_available
-
-    available_rooms.each do |room|
-      available_rooms_of_requested_type << room if room.type == type_requested
+    
+    available_rooms = hotel.available_rooms_by_type(type_requested)
+      
+    if available_rooms != []
+      
     end
+    
+
   end
 
 end
